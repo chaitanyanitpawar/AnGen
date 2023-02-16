@@ -7,7 +7,7 @@ max_seq_len = 300
 model_path = "angen.bin"
 
 
-def generate_text(input_text, device='cuda', max_len=300):
+def generate_text(input_text, device='cpu', max_len=300):
     pad_tok = tokenizer.encode(['<|pad|>'])[0]
     model.load_state_dict(torch.load(model_path))
     model.to(device)
@@ -37,6 +37,6 @@ inp = st.text_input("Enter Initial Prompts")
 if st.button("Submit"):
     st.subheader("Generated Story:")
     with st.spinner(text="This may take a moment..."):
-        story = generate_text(inp, device='cuda')
+        story = generate_text(inp, device='cpu')
 
     st.write(story)
