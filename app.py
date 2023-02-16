@@ -9,7 +9,7 @@ model_path = "angen.bin"
 
 def generate_text(input_text, device='cpu', max_len=300):
     pad_tok = tokenizer.encode(['<|pad|>'])[0]
-    model.load_state_dict(torch.load(model_path))
+    model.load_state_dict(torch.load(model_path,map_location=torch.device("cpu")))
     model.to(device)
     model.eval()
 
