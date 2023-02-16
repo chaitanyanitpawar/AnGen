@@ -1,4 +1,4 @@
-torch==1.13.1+cu116
+torch==1.12+cu113
 torch-optimizer==0.3.0
 torchaudio==0.13.1+cu116
 torchmetrics==0.10.0
